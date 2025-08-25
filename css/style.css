@@ -10,6 +10,9 @@ main{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 10pxp;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .contenedor img {
@@ -17,3 +20,52 @@ main{
     margin: 10px;
 
 }
+
+.imagen-wrapper {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.imagen-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin: 10px;
+}
+
+.imagen-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+.overlay button {
+    background: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.overlay button:hover {
+    background: #ff4081;
+    color: white;
+}
+
