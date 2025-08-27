@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Formulario de registro</h2>
+    <form id="formularioRegistro">
+        <fieldset>
+            <legend>Datos personales</legend>
+            <label for="nombre">Nombre: </label>
+            <input size="30" type="text" name="nombre" placeholder="Ingrese su nombre aqui...">
+            <label for="apellido">Apellido: </label>
+            <input size="30" type="text" name="apellido" placeholder="Ingrese su apellido aqui...">
+            <br><br>
+            <label for="direccion">Direccion: </label>
+            <input size="30" type="text" name="direccion" placeholder="Ingrese su direccion aqui...">
+            <label for="ciudad">Ciudad: </label>
+            <input size="30" type="text" name="ciudad" placeholder="Ingrese su ciudad aqui...">
+            <br><br>
+            <label for="zipcode">Codigo postal: </label>
+            <input size="30" type="text" name="zipcode" placeholder="Ingrese su codigo postal aqui...">
+            <label for="telefono">Telefono: </label>
+            <input size="30" type="tel" name="telefono" placeholder="Ingrese su telefono aqui...">
+            <br><br>
+            <label for="birtDate">Fecha Nac. (mm/dd/yyyy): </label>
+            <input type="date" name="birtDate">
+        </fieldset>
+        <fieldset>
+            <legend>Usuario</legend>
+            <label for="nombreUsuario">nombre de Usuario: </label>
+            <input size="30" type="text" name="nombreUsuario" placeholder="Ingrese su nombre aqui..." required>
+            <label for="email">email: </label>
+            <input size="30" type="email" name="email" placeholder="Ingrese su email aqui..." required>
+            <br><br>
+            <label for="contraseña">contraseña: </label>
+            <input size="30" type="password" name="contraseña" placeholder="Ingrese su contraseña aqui..." required>
+        </fieldset>
+        <input type="submit" value="Enviar">
+    </form>
+    <script src="../js/registrarUsuarios.js"></script>
+</body>
+</html>
