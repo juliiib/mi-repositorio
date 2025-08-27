@@ -1,5 +1,5 @@
 const contenedor = document.querySelector('.contenedor')
-const filas = 10
+const filas = 1
 
 for (let i = 0; i < filas * 3; i++) {
     // Crear contenedor individual para cada imagen
