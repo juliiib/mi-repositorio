@@ -30,6 +30,8 @@ for (let i = 0; i < filas * 30; i++) {
         }
     });
 
+
+
     const botonDescargar = document.createElement('button')
     botonDescargar.classList.add('descargar')
     botonDescargar.innerHTML = '👀';
