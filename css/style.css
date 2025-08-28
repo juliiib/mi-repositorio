@@ -1,24 +1,116 @@
-main{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-.contenedor{
+/*Header y navegacion*/
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav h1 {
+    color: #4a4a4a;
+    font-size: 1.8rem;
+}
+
+.btn {
+    margin-left: 0 auto;
+    background-color: #6c63ff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #564fd4;
+}
+
+.btn-inicio {
+    background-color: #6c63ff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin: 0 auto;
+}
+
+.btn-inicio:hover {
+    background-color: #564fd4;
+}
+
+/*Cuerpo*/
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.beneficios {
+    background-color: #c6e1fd;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 0 auto;
+    text-align: center;
+    display: grid;
+    width: 40%;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.beneficios h4 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.lista-beneficios {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #4a4a4a;
+}
+
+/*Imagenes*/
+.contenedor {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 10pxp;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-.contenedor img {
-    object-fit: cover;
-    margin: 10px;
-
+    gap: 20px;
 }
 
 .imagen-wrapper {
@@ -26,6 +118,14 @@ main{
     width: 200px;
     height: 300px;
     overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.imagen-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .imagen-wrapper img {
@@ -33,7 +133,6 @@ main{
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s;
 }
 
 .overlay {
@@ -49,7 +148,6 @@ main{
     gap: 10px;
     opacity: 0;
     transition: opacity 0.3s;
-    margin: 10px;
 }
 
 .imagen-wrapper:hover .overlay {
@@ -59,13 +157,234 @@ main{
 .overlay button {
     background: white;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
 }
 
 .overlay button:hover {
-    background: #ff4081;
+    background: #6c63ff;
     color: white;
 }
 
+/*Para el corazon de favoritos*/
+.like{
+    background-color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.descargar{
+    background-color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.like.active{
+    color: #ff4081;
+    transform: scale(1.1);
+}
+
+.descargar.active{
+    color: #ff4081;
+    transform: scale(1.1);
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.5); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
+
+@keyframes downloadBounce {
+    0% { transform: scale(1); }
+    50% { transform: translateY(-5px) scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.like.active {
+    animation: heartbeat 0.5s;
+}
+
+.descargar.active {
+    animation: downloadBounce 0.5s;
+    background: #6c63ff;
+    color: white;
+}
+
+.like:hover{
+    background-color: #f0f0f0;
+    transform: scal(1.05);
+}
+
+.descargar:hover {
+    background: #6c63ff;
+    color: white;
+    transform: scale(1.05);
+}
+
+/*Formulario Usuario*/
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+fieldset {
+    border: 1px solid #e1e1e1;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    font-weight: 600;
+    padding: 0 10px;
+    color: #6c63ff;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+.submit-btn {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #564fd4;
+}
+
+/*Pie de pagina*/
+footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+/*Dispositivos mas chicos*/
+@media (max-width: 768px) {
+    nav {
+        display: grid;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        grid-row: 1;
+        grid-column: 1/ span 2;
+        width: 100%;
+        margin-top: 0 auto;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .btn {
+        grid-row: 2;
+        margin-bottom: 0 auto;
+        width: auto;
+    }
+    
+    .contenedor {
+        gap: 15px;
+    }
+    
+    .imagen-wrapper {
+        width: 150px;
+        height: 225px;
+    }
+    
+    form {
+        padding: 1.5rem;
+    }
+
+    .beneficios {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 1rem;
+    }
+    
+    .imagen-wrapper {
+        width: 140px;
+        height: 210px;
+    }
+    
+    .overlay {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .overlay button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
