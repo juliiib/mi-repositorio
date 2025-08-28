@@ -1,7 +1,7 @@
 const contenedor = document.querySelector('.contenedor')
 const filas = 1
 
-for (let i = 0; i < filas * 3; i++) {
+for (let i = 0; i < filas * 30; i++) {
     // Crear contenedor individual para cada imagen
     const imgWrapper = document.createElement('div')
     imgWrapper.classList.add('imagen-wrapper')
@@ -14,21 +14,57 @@ for (let i = 0; i < filas * 3; i++) {
     const overlay = document.createElement('div')
     overlay.classList.add('overlay')
 
-    const botonFavorito = document.createElement('button')
-    botonFavorito.classList.add('like')
-    botonFavorito.textContent = 'favorito'
+
+    //Cambie esta parte del script para que se viera como un corazon y la intension es tambien ponerle alguna animacion.
+    const botonFavorito = document.createElement('button');
+    botonFavorito.classList.add('like');
+    botonFavorito.innerHTML = '♡';
+    botonFavorito.setAttribute('aria-label', 'Añadir a favoritos');
+
+    botonFavorito.addEventListener('click', function() {
+        this.classList.toggle('active');
+
+        if (this.classList.contains('active')) {
+            this.innerHTML = '♥';
+            this.style.color = '';
+        }
+    });
 
     const botonDescargar = document.createElement('button')
     botonDescargar.classList.add('descargar')
-    botonDescargar.textContent = 'descargar'
+    botonDescargar.innerHTML = '👀';
+    botonDescargar.setAttribute('aria-label', 'Descargar imagen');
+
+    botonDescargar.addEventListener('click', function() {
+        this.classList.add('active');
+        
+        const originalIcon = this.innerHTML;
+        this.innerHTML = '⏳'; 
+        
+        const link = document.createElement('a');
+        link.href = img.src;
+        
+        const fileName = `imagen-${i+1}-${Date.now()}.jpg`;
+        link.download = fileName;
+        
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        setTimeout(() => {
+            this.innerHTML = '✓'; 
+            setTimeout(() => {
+                this.innerHTML = originalIcon; 
+                this.classList.remove('active');
+            }, 1000); 
+        }, 500); 
+    });
 
     overlay.appendChild(botonFavorito)
     overlay.appendChild(botonDescargar)
 
-    // Agregar imagen y overlay al wrapper
     imgWrapper.appendChild(img)
     imgWrapper.appendChild(overlay)
 
-    // Agregar wrapper al contenedor principal
     contenedor.appendChild(imgWrapper)
 }
