@@ -299,6 +299,12 @@ input:focus {
     box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
 }
 
+/* Estilo para el msj de error */
+
+#error_usuario, #error_email, #error_password{
+    color: red;
+}
+
 .submit-btn {
     background-color: #6c63ff;
     color: white;
