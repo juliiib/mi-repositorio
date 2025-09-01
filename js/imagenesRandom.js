@@ -2,15 +2,12 @@ const contenedor = document.querySelector('.contenedor')
 const filas = 1
 
 for (let i = 0; i < filas * 30; i++) {
-    // Crear contenedor individual para cada imagen
     const imgWrapper = document.createElement('div')
     imgWrapper.classList.add('imagen-wrapper')
 
-    // Crear imagen
     const img = document.createElement('img')
     img.src = `https://picsum.photos/200/300?random=${i}`
 
-    // Crear overlay
     const overlay = document.createElement('div')
     overlay.classList.add('overlay')
 
@@ -29,8 +26,6 @@ for (let i = 0; i < filas * 30; i++) {
             this.style.color = '';
         }
     });
-
-
 
     const botonDescargar = document.createElement('button')
     botonDescargar.classList.add('descargar')
@@ -69,4 +64,6 @@ for (let i = 0; i < filas * 30; i++) {
     imgWrapper.appendChild(overlay)
 
     contenedor.appendChild(imgWrapper)
+
 }
+

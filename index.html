@@ -10,8 +10,9 @@
     <header>
         <nav>
             <a href="./pages/registro.html" class="btn">Registrarse</a>
+            <a href="./pages/iniciarSesion.html" class="btn">iniciar sesion</a>
             <h1>♥ Moments ♥</h1>
-            <a href="./pages/galeria.html" class="btn" id="miGaleria">Mi Perfil</a>
+            <a href="./pages/miPerfil.html" class="btn" id="miGaleria">Mi Perfil</a>
         </nav>
     </header>
     <main>
@@ -21,5 +22,12 @@
         <p>Proyecto de galería de imágenes © 2025</p>
     </footer>
     <script src="./js/imagenesRandom.js"></script>
+    <script src="./js/guardarLikes.js"></script>
+    <script>
+        const usuarioGuardado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+        if (usuarioGuardado) {
+        console.log("Usuario ya logueado:", usuarioGuardado.nombreUsuario);
+        }
+    </script>
 </body>
 </html>
