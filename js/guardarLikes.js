@@ -1,28 +1,31 @@
-// Reemplazá con tu endpoint real de SheetDB
-const SHEETDB_URL = "https://sheetdb.io/api/v1/XXXXX";  
+console.log("script cargado")
+document.querySelector(".contenedor").addEventListener("click", async (e) => {
+    if (e.target.classList.contains("like")) {
+        e.target.classList.toggle("active");
 
-function guardarLike(usuario, imageUrl) {
-    fetch(SHEETDB_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            data: {
-                usuario: usuario,
-                imagen: imageUrl
-            }
-        })
-    })
-    .then(res => res.json())
-    .then(data => console.log("Like guardado:", data))
-    .catch(err => console.error("Error al guardar like:", err));
-}
+        const img = e.target.closest(".imagen-wrapper").querySelector("img");
+        const urlFinal = img.src;
 
-function quitarLike(usuario, imageUrl) {
-    // Eliminamos buscando por usuario + imagen
-    fetch(`${SHEETDB_URL}/usuario/${usuario}/imagen/${encodeURIComponent(imageUrl)}`, {
-        method: "DELETE"
-    })
-    .then(res => res.json())
-    .then(data => console.log("Like eliminado:", data))
-    .catch(err => console.error("Error al eliminar like:", err));
-}
+        const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+
+        const data = {
+            usuario: usuario.nombreUsuario,
+            url_imagen: urlFinal
+        };
+
+        console.log("datos capturados:", data);
+
+        try {
+            const response = await fetch("https://sheetdb.io/api/v1/isz9lmkvqyslz", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ data: [data] })
+            });
+
+            const result = await response.json();
+            console.log("Guardado en Sheets:", result);
+        } catch (error) {
+            console.error("Error al guardar en Sheets:", error);
+        }
+    }
+});

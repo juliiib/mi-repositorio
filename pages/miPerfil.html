@@ -3,22 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Mi Galeria</title>
 </head>
 <body>
     <header>
         <nav>
-            <a href="../index.html" class="btn">Inicio</a>
-            <h1>
-                
-            </h1>
+            <a href="../index.html" class="btn">volver</a>
+            <p id="fotoPerfil" class="oculto">(foto de perfil) ...</p>
         </nav>
     </header>
     <main>
+        <div id="perfil" class="oculto">
+            <div>
+                <h1>Tus momentos favoritos</h1>
+                <div id="mis-favoritos" class="contenedor">
+                    
+                </div>
+            </div>
+            <div>
+                <button id="cerrarSesion" class="btn">Cerrar sesión</button>
+            </div>
+        </div>
+        <div id="aviso" class="oculto">
+            <p>Debes iniciar sesión para ver tu perfil.</p>
+            <a href="../pages/iniciarSesion.html" class="btn">iniciar sesion</a>
+            <a href="./registro.html" class="btn">Registrarse</a>
+        </div>
     </main>
     <footer>
         <p>Proyecto de galería de imágenes © 2025</p>
     </footer>
+    <script src="../js/perfilPersonal.js"></script>
+    <script src="../mock/cerrarSesion.js"></script>
 </body>
 </html>

@@ -394,3 +394,7 @@ footer {
         font-size: 0.8rem;
     }
 }
+
+.oculto{
+    display: none;
+}
