@@ -1,24 +1,69 @@
-* {
+:root{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --color-header:linear-gradient(135deg, #7A77B9, #A29BFE);
+    --color-letra:black;
+    --color-menu:#2C2966;
+    --color-fondo: white;
+    --color-fondoMenu: white;
+    --color-footer:linear-gradient(135deg, #7A77B9, #A29BFE);
+    --color-opcionesMenu:#B1AFDF;
+    --color-btn:#E6E6F5;
+    --color-form: white;
+    --color-Sumit:#6c63ff;
+    --color-Beneficios: #c6e1fd;
+    --color-Input: white;
+}
+
+/*Modo Oscuro*/
+.oscuro-modo {
+    --color-header:#0D0C1D;
+    --color-letra: white;
+    --color-fondo:#0D0C1D;
+    --color-menu: white;
+    --color-fondoMenu: #0D0C1D;
+    --color-footer:#1C1A42;
+    --color-opcionesMenu:white;
+    --color-btn:#1C1A42;
+    --color-form:#8E8BD0;
+    --color-Sumit:#0D0C1D;
+    --color-Beneficios: #D5D3EE;
+    --color-Input: #D5D3EE;
+}
+
+.btn-nocturno{
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 5em;
+    height: 5em;
+}
+span{
+    color: black;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+    color: var(--color-letra);
+    background-color: var(--color-fondo);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 /*Header y navegacion*/
 header {
-    background-color: #fff;
+    background: var(--color-header);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 1rem;
+    margin: 0;
+    display: inline-block;
 }
 
 nav {
@@ -29,23 +74,34 @@ nav {
     margin: 0 auto;
 }
 
-nav h1 {
-    color: #4a4a4a;
-    font-size: 1.8rem;
+h1 {
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    color: var(--color-letra);
+    font-size: 3rem;
+    text-align: center;
 }
 
+
 .btn {
-    margin-left: 0 auto;
-    background-color: #6c63ff;
-    color: white;
-    padding: 0.5rem 1rem;
+    background-color: var(--color-btn);
+    color: var(--color-letra);
+    padding: 0.75rem 1.5rem;
     border-radius: 4px;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 3px 10px rgba(108, 99, 255, 0.3);
 }
 
 .btn:hover {
-    background-color: #564fd4;
+    background-color: var(--color-fondoMenu);
+    color: var(--color-letra);
+
 }
 
 .btn-inicio {
@@ -58,8 +114,74 @@ nav h1 {
     margin: 0 auto;
 }
 
+
 .btn-inicio:hover {
     background-color: #564fd4;
+}
+
+
+/*Menu Inicio*/
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.menu-inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2.5em;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid black;
+    padding: 15px;
+    background-color:var(--color-fondoMenu);
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(108, 99, 255, 0.3);
+}
+
+.menu-inicio span {
+    height: 0.4em;
+    margin: 2px;
+    width: 100%;
+    background-color: var(--color-menu);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Despliegue menu*/
+.opciones-menu {
+    position: absolute;
+    flex-direction: column;
+    margin-top: 10px;
+    left: 10px;
+    background-color:var(--color-opcionesMenu);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 0.5rem;
+    /*Oculta los botones hasta que se haga click*/
+    display: none;
+    flex-direction: column;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.opciones-menu.show {
+    display: flex;
+}
+
+/* Animacion al activarse*/
+.menu-inicio.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7.5px, 7.5px);
+}
+
+.menu-inicio.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-inicio.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7.5px, -7.5px);
 }
 
 /*Cuerpo*/
@@ -72,16 +194,14 @@ main {
 }
 
 .beneficios {
-    background-color: #c6e1fd;
-    padding: 20px;
+    background-color: var(--color-Beneficios);
     border-radius: 8px;
     margin: 0 auto;
     text-align: center;
     display: grid;
-    width: 40%;
+    max-width: 800px;
     align-items: center;
-    gap: 10px;
-    padding: 8px;
+    padding: 1rem;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
@@ -100,9 +220,11 @@ main {
 }
 
 h2 {
-    text-align: center;
+    text-align: left;
     margin-bottom: 2rem;
-    color: #4a4a4a;
+    color: var(--color-letra);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
 }
 
 /*Imagenes*/
@@ -249,13 +371,16 @@ h2 {
 .form-container {
     max-width: 800px;
     margin: 0 auto;
+    background:var(--color-fondo) ;
+    color:black;
 }
 
 form {
-    background: white;
+    background: var(--color-form);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 20px;
 }
 
 fieldset {
@@ -268,17 +393,20 @@ fieldset {
 legend {
     font-weight: 600;
     padding: 0 10px;
-    color: #6c63ff;
+    color: black;
+    font-size: 24px;
 }
 
 .form-group {
     margin-bottom: 1rem;
+    font-size: 20px;
 }
 
 label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    color:var(--color-fondo);
 }
 
 input[type="text"],
@@ -291,6 +419,7 @@ input[type="date"] {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
+    background: var(--color-Input);
 }
 
 input:focus {
@@ -306,7 +435,7 @@ input:focus {
 }
 
 .submit-btn {
-    background-color: #6c63ff;
+    background-color:var(--color-Sumit);
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
@@ -324,7 +453,7 @@ input:focus {
 
 /*Pie de pagina*/
 footer {
-    background-color: #fff;
+    background-color: var(--color-footer);
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
@@ -342,18 +471,17 @@ footer {
     }
 
     h1 {
-        grid-row: 1;
-        grid-column: 1/ span 2;
-        width: 100%;
-        margin-top: 0 auto;
-        justify-content: center;
+        margin: 0 auto;
         text-align: center;
+        content: center;
     }
 
     .btn {
-        grid-row: 2;
         margin-bottom: 0 auto;
         width: auto;
+        padding: 2px;
+        text-align: center;
+        font-size: 12x;
     }
     
     .contenedor {
@@ -371,6 +499,45 @@ footer {
 
     .beneficios {
         width: 100%;
+    }
+
+    .menu-inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+    padding: 5px;
+    background-color: #6c63ff;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(108, 99, 255, 0.3);
+    }
+
+    /* Animacion al activarse*/
+    .menu-inicio.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7.5px, 7.5px);
+    }
+    
+    .menu-inicio.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-inicio.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7.5px, -7.5px);
+    }
+    .opciones-menu {
+        position: absolute;
+        margin-top: 5px;
+        left: 5px;
+        background-color: #B1AFDF;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        padding: 0.25rem;
+        display: none;
+        flex-direction: column;
+        max-width: 1em;
+        z-index: 1000;
     }
 }
 
