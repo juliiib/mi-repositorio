@@ -74,22 +74,31 @@ document.getElementById("nombreUsuario").addEventListener("blur", function() {
 });
 
 
+//Funcion para verificar si el correo electronico ya esta en uso en la base de datos (sheetDB)
 
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
- form.addEventListener("submit",async (e) => {
-     e.preventDefault();
+    const data = Object.fromEntries(new FormData(form));
+    const email = data.email;
 
-     const data=Object.fromEntries(new FormData(form));
+    // Verificar si el email ya existe
+    const checkUrl = `https://sheetdb.io/api/v1/h8t1n9qrjcn9q/search?email=${email}`;
+    const res = await fetch(checkUrl);
+    const usuarios = await res.json();
 
-     console.log("Datos capturados:",data)
+    if (usuarios.length > 0) {
+        alert("Ya existe una cuenta con ese correo.");
+        return;
+    }
 
-     await fetch("https://sheetdb.io/api/v1/h8t1n9qrjcn9q", {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify({ data: [data] })  
-     });
+    // Si no existe, registrar el usuario
+    await fetch("https://sheetdb.io/api/v1/h8t1n9qrjcn9q", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: [data] })  
+    });
 
-
-     alert("cuenta creada con exito");
-     form.reset();
- });
+    alert("Cuenta creada con exito");
+    form.reset(); 
+});
