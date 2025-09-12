@@ -430,7 +430,7 @@ input:focus {
 
 /* Estilo para el msj de error */
 
-#error-usuario, #error-email, #error-password, #error-fecha{
+#error_usuario, #error_email, #error_password{
     color: red;
 }
 
