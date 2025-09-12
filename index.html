@@ -14,17 +14,14 @@
                 <span></span>
                 <span></span>
             </div>
-            <div id="Inicio" clase="btn-inicioo" style="display:none;">
-                <button onclick="cargarPagina('../index')" class="btn">Inicio</button>
-            </div>
             <h1>♥ Moments ♥</h1>
             <button style="border-radius: 50%;border: 2px solid black;" id="ModoOscuro">
-                <img  id="PantallaClara" src="Imagenes/PantallaClara.png" alt="Modo Oscuro" width="60" height="60">
+                <img  id="PantallaClara" src="assets/image/PantallaClara.png" alt="Modo Oscuro" width="60" height="60">
             </button>
         </div>
         <div class="opciones-menu">
-            <button onclick="cargarPagina('./pages/registro')" class="btn">Registrarse</button>
-            <button onclick="cargarPagina('./pages/iniciarSesion')" class="btn">Iniciar Sesion</button>
+            <a href="./pages/registro.html" class="btn">Registrarse</a>
+            <a href="./pages/iniciarSesion.html" class="btn">Iniciar sesion</a>
             <a href="./pages/miPerfil.html" class="btn" id="miGaleria">Mi Perfil</a>
         </div>
     </header>
@@ -36,94 +33,11 @@
     <footer id="footer">
         <p>Proyecto de galería de imágenes © 2025</p>
     </footer>
+
     <script src="./js/imagenesRandom.js"></script>
-    <script>
-        const usuarioGuardado = JSON.parse(localStorage.getItem("usuarioLogueado"));
-        if (usuarioGuardado) {
-        console.log("Usuario ya logueado:", usuarioGuardado.nombreUsuario);
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.menu-inicio');
-            const dropdownMenu = document.querySelector('.opciones-menu');
-            
-            hamburger.addEventListener('click', function() {
-                // Alternar la visualizacion del menu
-                dropdownMenu.classList.toggle('show');
-                // Alternar la clase active para la animacion del icono
-                hamburger.classList.toggle('active');
-            });
-            
-            // Cerrar el menúusi se hace clic fuera de el
-            document.addEventListener('click', function(event) {
-                if (!event.target.closest('.menu-container')) {
-                    dropdownMenu.classList.remove('show');
-                    hamburger.classList.remove('active');
-                }
-            });
-        });
-
-        /*PRUEBA*/
-        function cargarPagina(pagina) {
-            let paginaAnterior = pagina;
-            document.getElementById("GuardaPagina").value = paginaAnterior || "";
-            fetch(pagina + '.html')
-                .then(response => {
-                    if (!response.ok) throw new Error('Página no encontrada');
-                    return response.text();
-                })
-                .then(html => {
-                    if(pagina === "../index"){
-                        document.getElementById('Inicio').style.display = "none";
-                        document.getElementById('GuardaPagina').style.display = "none";
-                        document.getElementById('header').style.display = "none";
-                        document.getElementById('footer').style.display = "none";
-                        window.location.reload();
-                        return;
-                    }
-                    document.getElementById('contenido').innerHTML = html;
-                    document.getElementById('Inicio').style.display = "block";
-                    document.getElementById('contenedor').style.display = "none";
-                    document.getElementById('menuInicio').style.display = "none";
-                })
-                .catch(err => {
-                    document.getElementById('contenido').innerHTML = `<p>Error al cargar la página: ${err}</p>`;
-                });
-        }
-
-        /*Modo Oscuro*/
-        const body = document.body;
-        const toggle = document.getElementById("ModoOscuro");
-        
-        toggle.addEventListener("click", () => {
-            body.classList.toggle("oscuro-modo");
-        
-            // Guardar preferencia en localStorage
-            if (body.classList.contains("oscuro-modo")) {
-                localStorage.setItem("theme", "dark");
-            } else {
-                localStorage.setItem("theme", "light");
-            }
-        });
-        
-        // Al cargar, aplicar lo que guardó el usuario
-        if (localStorage.getItem("theme") === "dark") {
-            body.classList.add("oscuro-modo");
-        }
-
-        //Cambia la imagen con el click en boton modo oscuro
-        const btn = document.getElementById("ModoOscuro");
-        const icono = document.getElementById("PantallaClara");
-        
-        btn.addEventListener("click", () => {
-            if(icono.src.includes("Imagenes/PantallaClara.png")){
-                icono.src = "Imagenes/PantallaOscura.png"; // cambia a luna
-                icono.alt = "Modo Oscuro";
-            } else {
-                icono.src = "Imagenes/PantallaClara.png";  // vuelve a sol
-                icono.alt = "Modo Claro";
-            }
-        });
-    </script>
+    <script src="./js/modoOscuro.js"></script>
     <script src="./js/guardarLikes.js"></script>
+    <script src="./js/menuHamburguesa.js"></script>
 </body>
 </html>
+
