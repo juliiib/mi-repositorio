@@ -13,7 +13,6 @@ for (let i = 0; i < filas * 30; i++) {
     const overlay = document.createElement('div')
     overlay.classList.add('overlay')
 
-    //Cambie esta parte del script para que se viera como un corazon y la intension es tambien ponerle alguna animacion.
     const botonFavorito = document.createElement('button');
     botonFavorito.classList.add('like');
     botonFavorito.innerHTML = '♡';
