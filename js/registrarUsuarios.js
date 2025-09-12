@@ -7,13 +7,11 @@ form.addEventListener("submit", function(event){
     const error_usuario = document.getElementById("error_usuario")
     const error_email = document.getElementById("error_email")
     const error_password = document.getElementById("error_password")
-    //Expresion regular para el email
     const regexEmail =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
     let valido = true;
 
-    // Validar nombre de usuario
     if (username.length < 4 || username.length > 8){
         error_usuario.textContent = 'El nombre debe contener entre 4 y 8 caracteres';
         valido = false;
@@ -21,7 +19,6 @@ form.addEventListener("submit", function(event){
         error_usuario.textContent = '';
     }
 
-    // Validar email
     if (!regexEmail.test(email)){
         error_email.textContent = 'El email no es válido';
         valido = false;
@@ -29,7 +26,6 @@ form.addEventListener("submit", function(event){
         error_email.textContent = '';
     }
 
-    // Validar contraseña
     if (password.length < 8 || password.length > 16){
         error_password.textContent = 'La contraseña debe tener entre 8 y 16 caracteres';
         valido = false;
@@ -39,8 +35,6 @@ form.addEventListener("submit", function(event){
 
     if (!valido) event.preventDefault();
 })
-
-//Eventos BLUR, validar cuando pierde el foco
 
 document.getElementById("email").addEventListener("blur", function() {
     const email = this.value.trim();
@@ -76,7 +70,7 @@ document.getElementById("nombreUsuario").addEventListener("blur", function() {
 
 
 
- form.addEventListener("submit",async (e) => {
+    form.addEventListener("submit",async (e) => {
      e.preventDefault();
 
      const data=Object.fromEntries(new FormData(form));
