@@ -22,7 +22,7 @@ form.addEventListener("submit",async (e) => {
             
             window.location.href = "../index.html";
         } else {
-            alert("Correo o contraseña incorrectos ❌");
+            alert("Correo o contraseña incorrectos");
         }
     } catch (error) {
         console.error("Error en login:", error);

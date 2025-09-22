@@ -1,50 +1,44 @@
-:root{
+/* ===========================
+   VARIABLES CSS
+=========================== */
+:root {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    --color-header:linear-gradient(135deg, #7A77B9, #A29BFE);
-    --color-letra:black;
-    --color-menu:#2C2966;
+
+    --color-header: linear-gradient(135deg, #7A77B9, #A29BFE);
+    --color-letra: black;
+    --color-menu: #2C2966;
     --color-fondo: white;
     --color-fondoMenu: white;
-    --color-footer:linear-gradient(135deg, #7A77B9, #A29BFE);
-    --color-opcionesMenu:#B1AFDF;
-    --color-btn:#E6E6F5;
+    --color-footer: linear-gradient(135deg, #7A77B9, #A29BFE);
+    --color-opcionesMenu: #B1AFDF;
+    --color-btn: #E6E6F5;
     --color-form: white;
-    --color-Sumit:#6c63ff;
+    --color-Sumit: #6c63ff;
     --color-Beneficios: #c6e1fd;
     --color-Input: white;
 }
 
-/*Modo Oscuro*/
+/* Modo Oscuro */
 .oscuro-modo {
-    --color-header:#0D0C1D;
+    --color-header: #0D0C1D;
     --color-letra: white;
-    --color-fondo:#0D0C1D;
+    --color-fondo: #0D0C1D;
     --color-menu: white;
     --color-fondoMenu: #0D0C1D;
-    --color-footer:#1C1A42;
-    --color-opcionesMenu:white;
-    --color-btn:#1C1A42;
-    --color-form:#8E8BD0;
-    --color-Sumit:#0D0C1D;
+    --color-footer: #1C1A42;
+    --color-opcionesMenu: white;
+    --color-btn: #1C1A42;
+    --color-form: #8E8BD0;
+    --color-Sumit: #0D0C1D;
     --color-Beneficios: #D5D3EE;
     --color-Input: #D5D3EE;
 }
 
-.btn-nocturno{
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    width: 5em;
-    height: 5em;
-}
-span{
-    color: black;
-}
-
+/* ===========================
+   GLOBAL STYLES
+=========================== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -57,10 +51,16 @@ body {
     padding: 0;
 }
 
-/*Header y navegacion*/
+span {
+    color: black;
+}
+
+/* ===========================
+   HEADER & NAV
+=========================== */
 header {
     background: var(--color-header);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     margin: 0;
     display: inline-block;
@@ -76,13 +76,15 @@ nav {
 
 h1 {
     margin: 0 auto;
+    text-align: center;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     color: var(--color-letra);
     font-size: 3rem;
-    text-align: center;
 }
 
-
+/* ===========================
+   BOTONES
+=========================== */
 .btn {
     background-color: var(--color-btn);
     color: var(--color-letra);
@@ -101,7 +103,6 @@ h1 {
 .btn:hover {
     background-color: var(--color-fondoMenu);
     color: var(--color-letra);
-
 }
 
 .btn-inicio {
@@ -114,19 +115,20 @@ h1 {
     margin: 0 auto;
 }
 
-
 .btn-inicio:hover {
     background-color: #564fd4;
 }
 
-
-/*Menu Inicio*/
+/* ===========================
+   MENU INICIO
+=========================== */
 .menu-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
+
 .menu-inicio {
     display: flex;
     flex-direction: column;
@@ -136,7 +138,7 @@ h1 {
     cursor: pointer;
     border: 2px solid black;
     padding: 15px;
-    background-color:var(--color-fondoMenu);
+    background-color: var(--color-fondoMenu);
     border-radius: 50%;
     box-shadow: 0 3px 10px rgba(108, 99, 255, 0.3);
 }
@@ -150,28 +152,7 @@ h1 {
     transition: all 0.3s ease;
 }
 
-/* Despliegue menu*/
-.opciones-menu {
-    position: absolute;
-    flex-direction: column;
-    margin-top: 10px;
-    left: 10px;
-    background-color:var(--color-opcionesMenu);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    padding: 0.5rem;
-    /*Oculta los botones hasta que se haga click*/
-    display: none;
-    flex-direction: column;
-    min-width: 150px;
-    z-index: 1000;
-}
-
-.opciones-menu.show {
-    display: flex;
-}
-
-/* Animacion al activarse*/
+/* Animacion menu activo */
 .menu-inicio.active span:nth-child(1) {
     transform: rotate(45deg) translate(7.5px, 7.5px);
 }
@@ -184,7 +165,28 @@ h1 {
     transform: rotate(-45deg) translate(7.5px, -7.5px);
 }
 
-/*Cuerpo*/
+/* Opciones del menu */
+.opciones-menu {
+    position: absolute;
+    flex-direction: column;
+    margin-top: 10px;
+    left: 10px;
+    background-color: var(--color-opcionesMenu);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 0.5rem;
+    display: none;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.opciones-menu.show {
+    display: flex;
+}
+
+/* ===========================
+   MAIN & BENEFICIOS
+=========================== */
 main {
     flex: 1;
     padding: 2rem;
@@ -195,14 +197,13 @@ main {
 
 .beneficios {
     background-color: var(--color-Beneficios);
-    border-radius: 8px;
+    border-radius: 6px;
     margin: 0 auto;
     text-align: center;
     display: grid;
     max-width: 800px;
     align-items: center;
     padding: 1rem;
-    border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
@@ -227,7 +228,9 @@ h2 {
     font-size: 40px;
 }
 
-/*Imagenes*/
+/* ===========================
+   IMAGENES & OVERLAY
+=========================== */
 .contenedor {
     display: flex;
     justify-content: center;
@@ -291,8 +294,11 @@ h2 {
     color: white;
 }
 
-/*Para el corazon de favoritos*/
-.like{
+/* ===========================
+   BOTONES LIKE / DESCARGAR
+=========================== */
+.like,
+.descargar {
     background-color: white;
     border: none;
     width: 40px;
@@ -307,29 +313,29 @@ h2 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.descargar{
-    background-color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.like.active{
+.like.active {
     color: #ff4081;
     transform: scale(1.1);
+    animation: heartbeat 0.5s;
 }
 
-.descargar.active{
+.descargar.active {
     color: #ff4081;
     transform: scale(1.1);
+    animation: downloadBounce 0.5s;
+    background: #6c63ff;
+    color: white;
+}
+
+.like:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.descargar:hover {
+    background: #6c63ff;
+    color: white;
+    transform: scale(1.05);
 }
 
 @keyframes heartbeat {
@@ -346,33 +352,14 @@ h2 {
     100% { transform: scale(1); }
 }
 
-.like.active {
-    animation: heartbeat 0.5s;
-}
-
-.descargar.active {
-    animation: downloadBounce 0.5s;
-    background: #6c63ff;
-    color: white;
-}
-
-.like:hover{
-    background-color: #f0f0f0;
-    transform: scal(1.05);
-}
-
-.descargar:hover {
-    background: #6c63ff;
-    color: white;
-    transform: scale(1.05);
-}
-
-/*Formulario Usuario*/
+/* ===========================
+   FORMULARIOS
+=========================== */
 .form-container {
     max-width: 800px;
     margin: 0 auto;
-    background:var(--color-fondo) ;
-    color:black;
+    background: var(--color-fondo);
+    color: black;
 }
 
 form {
@@ -406,7 +393,7 @@ label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color:var(--color-fondo);
+    color: var(--color-fondo);
 }
 
 input[type="text"],
@@ -428,14 +415,13 @@ input:focus {
     box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
 }
 
-/* Estilo para el msj de error */
-
-#error_usuario, #error_email, #error_password{
+/* Mensajes de error */
+#error_usuario, #error_email, #error_password {
     color: red;
 }
 
 .submit-btn {
-    background-color:var(--color-Sumit);
+    background-color: var(--color-Sumit);
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
@@ -451,7 +437,9 @@ input:focus {
     background-color: #564fd4;
 }
 
-/*Pie de pagina*/
+/* ===========================
+   FOOTER
+=========================== */
 footer {
     background-color: var(--color-footer);
     text-align: center;
@@ -460,7 +448,9 @@ footer {
     box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
 
-/*Dispositivos mas chicos*/
+/* ===========================
+   MEDIA QUERIES
+=========================== */
 @media (max-width: 768px) {
     nav {
         display: grid;
@@ -481,18 +471,18 @@ footer {
         width: auto;
         padding: 2px;
         text-align: center;
-        font-size: 12x;
+        font-size: 12px;
     }
-    
+
     .contenedor {
         gap: 15px;
     }
-    
+
     .imagen-wrapper {
         width: 150px;
         height: 225px;
     }
-    
+
     form {
         padding: 1.5rem;
     }
@@ -502,30 +492,18 @@ footer {
     }
 
     .menu-inicio {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 2em;
-    height: 2em;
-    cursor: pointer;
-    padding: 5px;
-    background-color: #6c63ff;
-    border-radius: 5px;
-    box-shadow: 0 3px 10px rgba(108, 99, 255, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 2em;
+        height: 2em;
+        cursor: pointer;
+        padding: 5px;
+        background-color: #6c63ff;
+        border-radius: 5px;
+        box-shadow: 0 3px 10px rgba(108, 99, 255, 0.3);
     }
 
-    /* Animacion al activarse*/
-    .menu-inicio.active span:nth-child(1) {
-        transform: rotate(45deg) translate(7.5px, 7.5px);
-    }
-    
-    .menu-inicio.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .menu-inicio.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7.5px, -7.5px);
-    }
     .opciones-menu {
         position: absolute;
         margin-top: 5px;
@@ -545,23 +523,36 @@ footer {
     main {
         padding: 1rem;
     }
-    
+
     .imagen-wrapper {
         width: 140px;
         height: 210px;
     }
-    
+
     .overlay {
         flex-direction: column;
         gap: 5px;
     }
-    
+
     .overlay button {
         padding: 6px 10px;
         font-size: 0.8rem;
     }
 }
 
-.oculto{
+/* ===========================
+   CLASES AUXILIARES
+=========================== */
+.oculto {
     display: none;
+}
+
+.btn-nocturno {
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 5em;
+    height: 5em;
 }

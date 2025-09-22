@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.getElementById("ModoOscuro");
     const icono = document.getElementById("PantallaClara");
 
-    if (localStorage.getItem("theme") === "dark") {
+    if (localStorage.getItem("tema") === "oscuro") {
         body.classList.add("oscuro-modo");
         icono.src = "Imagenes/PantallaOscura.png"; 
         icono.alt = "Modo Oscuro";
@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
         body.classList.toggle("oscuro-modo");
 
         if (body.classList.contains("oscuro-modo")) {
-            localStorage.setItem("theme", "dark");
+            localStorage.setItem("tema", "oscuro");
         } else {
-            localStorage.setItem("theme", "light");
+            localStorage.setItem("tema", "claro");
         }
 
         if(icono.src.includes("assets/image/PantallaClara.png")){
